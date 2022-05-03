@@ -1,4 +1,5 @@
 #include "Ambassador.hpp"
+#include "Game.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <vector>
@@ -6,11 +7,12 @@
 using namespace std;
 using namespace coup;
 
-Ambassador::Ambassador(Game game, string name) : Player(game, name){
-
+Ambassador::Ambassador(Game &game, string name) : Player(game, name){
+    this->roleName = "Ambassador";
 }
 
 
-void Ambassador::transfer(Player p1, Player p2){
-    return;
+void Ambassador::transfer(Player &p1, Player &p2){
+    p1.setCoinAmount(-1);
+    p2.setCoinAmount(1);
 }

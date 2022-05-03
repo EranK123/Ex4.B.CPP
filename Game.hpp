@@ -4,10 +4,19 @@
 #include <vector>
 #include <string.h>
 using namespace std;
+namespace coup{
+class Player;
 class Game{
-         public:
+        public:
+        vector<Player*> playersList;
+        int turnNum;
          Game();
          string turn();
          vector<string > players();
-         string winner();    
+         string winner();
+         void add(Player &p);
+         void removeAtStart();
 };
+}
+
+
