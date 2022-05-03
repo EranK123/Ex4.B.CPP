@@ -13,9 +13,10 @@ Assassin::Assassin(Game &game, string name) : Player(game, name){
 }
 
 void Assassin::eliminate(Player &p){
+    this->game->turnNum++;
     if(this->coin_amount < 3){
         throw std::invalid_argument("Needs at least 3 coins");
-    }
+    }else if(this->coin_amount >= 3 && this->coin_amount <= 6){
     this->coin_amount -= 3;
     int index = 0;
     for(int i = 0; i < this->game->playersList.size(); i++){
@@ -25,4 +26,7 @@ void Assassin::eliminate(Player &p){
         }
     }
     this->game->playersList.erase(this->game->playersList.begin() + index);
+    }else{
+        this->coup(p);
+    }
 }

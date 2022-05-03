@@ -13,6 +13,7 @@ using namespace coup;
         }
         
         void Duke::tax(){
+                this->game->turnNum++;
                 this->coin_amount += 3;
                 
         }

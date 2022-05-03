@@ -1,4 +1,5 @@
 #include "Contessa.hpp"
+#include "Game.cpp"
 #include <iostream>
 #include <stdexcept>
 #include <vector>
@@ -6,7 +7,7 @@
 using namespace std;
 using namespace coup;
 
-    Contessa::Contessa(Game game, string name) : Player(game, name){}
+    Contessa::Contessa(Game &game, string name) : Player(game, name){}
 
 
 void Contessa::block(Player p) {

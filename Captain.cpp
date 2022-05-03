@@ -16,5 +16,6 @@ void Captain::block(Player &p){
 void Captain::steal(Player &p){
     p.setCoinAmount(-2);
     this->coin_amount += 2;
+    this->game->turnNum++;
 }
 }
