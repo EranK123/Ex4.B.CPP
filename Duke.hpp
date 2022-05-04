@@ -4,6 +4,6 @@ namespace coup{
         public:
         Duke(Game &game, string name);
         void tax();
-        void block(Player p);
+        void block(Player &p);
     };
 }

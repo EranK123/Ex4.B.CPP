@@ -14,8 +14,10 @@ void Captain::block(Player &p){
 }
 
 void Captain::steal(Player &p){
+    this->setCurrentAction("steal");
     p.setCoinAmount(-2);
     this->coin_amount += 2;
     this->game->turnNum++;
+    this->actionedPlayer = &p;
 }
 }

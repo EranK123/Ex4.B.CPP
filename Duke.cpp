@@ -13,12 +13,18 @@ using namespace coup;
         }
         
         void Duke::tax(){
+                this->setCurrentAction("tax");
                 this->game->turnNum++;
                 this->coin_amount += 3;
                 
         }
-        void Duke::block(Player p){
-
+        void Duke::block(Player &p){
+                if(p.getCurrentAction() != "foreign_aid"){
+                        throw std::invalid_argument("Must be foreign aid");
+                }
+                this->setCurrentAction("block");
+                p.setCoinAmount(-2);
         }
+                
 
 

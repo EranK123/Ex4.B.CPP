@@ -12,9 +12,13 @@ namespace coup{
         int coin_amount;
         string name;
         Game *game;
-        int roleNum;
+        string currentAction;
+       
         public:
+        Player *actionedPlayer;
+        Player();
         Player(Game &game, string name);
+        ~Player();
         void income();
         void foreign_aid();
         void coup(Player &p);
@@ -36,7 +40,16 @@ namespace coup{
 
         void setCoinAmount(int amount){
                 this->coin_amount += amount;
-        }    
+        }
+
+        string getCurrentAction() const {
+            return this->currentAction;
+        }
+
+        void setCurrentAction(string action)  {
+             this->currentAction = action;
+        }
+
         
     };
 }

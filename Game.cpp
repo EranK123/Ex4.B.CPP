@@ -9,12 +9,11 @@ using namespace coup;
             this->turnNum = 0;
         }
         string Game::turn(){
-            return this->playersList.at(this->turnNum %this->playersList.size())->getName();
+            return this->playersList.at(this->turnNum % this->playersList.size())->getName();
         }
         vector<string> Game::players(){
             vector<string> s;
             for (size_t i = 0; i < this->playersList.size(); i++){
-                // cout << this->playersList.at(i)->getName();
                 s.push_back(this->playersList.at(i)->getName());
             }
             return s;
@@ -29,7 +28,6 @@ using namespace coup;
 
         void Game::add(Player &p){
             this->playersList.push_back(new Player(p));
-            // this->turns.push_back(p.getName());
         }
 
      

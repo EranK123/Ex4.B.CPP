@@ -14,22 +14,15 @@ using namespace std;
 int main(){
     Game g;
     Duke duke(g, "duke");
-    Assassin assassin(g, "assassin");
+    // Assassin assassin(g, "assassin");
     Ambassador ambassador(g, "amb");
     Captain captain(g, "cap");
-    duke.income();
-    assassin.income();
-    ambassador.transfer(duke, assassin);
-    captain.steal(assassin);
-    cout << g.turn() << endl;
-    duke.tax();
-    assassin.foreign_aid();
+    duke.foreign_aid();
     ambassador.foreign_aid();
-    captain.foreign_aid();
-    cout << captain.coins();
-    cout << ambassador.coins();
-    cout << duke.coins();
-    cout << g.winner();
+    captain.steal(duke);
+    ambassador.block(captain);
+    cout << captain.coins() << endl;
+    cout << duke.coins() << endl;
     
 
 
