@@ -4,6 +4,9 @@
         "bitset": "cpp",
         "chrono": "cpp",
         "unordered_map": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "stdexcept": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp"
     }
 }

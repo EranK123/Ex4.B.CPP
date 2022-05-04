@@ -1,5 +1,5 @@
 #include "Contessa.hpp"
-#include "Game.cpp"
+#include "Game.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <vector>
@@ -13,9 +13,9 @@ Contessa::Contessa(Game &game, string name) : Player(game, name){
 
 
 void Contessa::block(Player &p) {
-    if(p.getCurrentAction() != "eliminate"){
-        throw std::invalid_argument("Must block eliminate"); 
+    if(p.getCurrentAction() != "eliminate" || this->isPlaying == 0){
+        throw std::invalid_argument("Error"); 
     }
     p.setCoinAmount(3);
-    //get the player who was elimintaed back to the game in his original turn
+    p.actionedPlayer->setIsPlaying(1);
 }

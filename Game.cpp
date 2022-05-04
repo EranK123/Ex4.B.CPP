@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <string.h>
+#include <algorithm>
 using namespace std;
 using namespace coup;
         Game::Game(){
@@ -14,16 +15,28 @@ using namespace coup;
         vector<string> Game::players(){
             vector<string> s;
             for (size_t i = 0; i < this->playersList.size(); i++){
+                if(this->playersList.at(i)->getIsPlaying() == 1){
+                    cout << this->playersList.at(i)->getCurrentAction() << endl;
                 s.push_back(this->playersList.at(i)->getName());
+                }
             }
             return s;
         }
         string Game::winner(){
-            if(this->playersList.size() == 1){
-                return this->playersList.at(0)->getName();
-            }else{
-                return "No winner yet";
+            int count = 0;
+            for(int i = 0; i < this->playersList.size(); i++){
+                if(this->playersList.at(i)->getIsPlaying() == 1){
+                    count++;
+                }
             }
+            if (count == 1){
+            for(int i = 0; i < this->playersList.size(); i++){
+                if(this->playersList.at(i)->getIsPlaying() != 0){
+                    return this->playersList.at(i)->getName();
+                }
+            }
+            }
+        return "No Winner Yet";
         }
 
         void Game::add(Player &p){
