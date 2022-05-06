@@ -13,7 +13,7 @@ using namespace coup;
         }
         
         void Duke::tax(){
-        if(this->isPlaying == 0){
+        if(this->isPlaying == 0 || this->game->turn() != this->name){
           throw std::invalid_argument("Not playing"); 
         }   
                 this->setCurrentAction("tax");

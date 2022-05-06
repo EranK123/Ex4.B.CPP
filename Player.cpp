@@ -21,8 +21,8 @@ Player::Player(Game &game, string name){
 }
 
 void Player::income(){
-    if(this->isPlaying == 0){
-        throw std::invalid_argument("Not playing");
+    if(this->isPlaying == 0 || this->game->turn() != this->name){
+        throw std::invalid_argument("Not playing or Not his turn");
     }
     this->setCurrentAction("income");
     this->coin_amount += 1;
@@ -30,16 +30,16 @@ void Player::income(){
 }
 
 void Player::foreign_aid(){
-    //  if(this->isPlaying == 0){
-    //     throw std::invalid_argument("Not playing");
-    // }
+     if(this->isPlaying == 0 || this->game->turn() != this->name){
+        throw std::invalid_argument("Not playing");
+    }
     this->setCurrentAction("foreign_aid");
     this->coin_amount += 2;
     this->game->turnNum++;
 }
 
 void Player::coup(Player &p){
-     if(this->isPlaying == 0){
+     if(this->isPlaying == 0 || this->game->turn() != this->name){
         throw std::invalid_argument("Not playing");
     }
     if(this->coin_amount < 7){

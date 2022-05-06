@@ -10,10 +10,12 @@ using namespace coup;
 
 Assassin::Assassin(Game &game, string name) : Player(game, name){
     this->roleName = "Assassin";
-
 }
 
 void Assassin::eliminate(Player &p){
+    if(this->game->turn() != this->name){
+        throw std::invalid_argument("Not his turn");
+    }
     this->game->turnNum++;
     if(this->coin_amount < 3){
         throw std::invalid_argument("Needs at least 3 coins");

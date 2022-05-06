@@ -15,10 +15,10 @@ using namespace coup;
         vector<string> Game::players(){
             vector<string> s;
             for (size_t i = 0; i < this->playersList.size(); i++){
-                if(this->playersList.at(i)->getIsPlaying() == 1){
-                    cout << this->playersList.at(i)->getCurrentAction() << endl;
+                // if(this->playersList.at(i)->getIsPlaying() > 0){
+                    cout << this->playersList.at(i)->coin_amount << endl;
                 s.push_back(this->playersList.at(i)->getName());
-                }
+                // }
             }
             return s;
         }
