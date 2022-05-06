@@ -16,6 +16,5 @@ void Contessa::block(Player &p) {
     if(p.getCurrentAction() != "eliminate" || this->isPlaying == 0){
         throw std::invalid_argument("Error"); 
     }
-    p.setCoinAmount(3);
     p.actionedPlayer->setIsPlaying(1);
 }
