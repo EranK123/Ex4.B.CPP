@@ -6,14 +6,14 @@
 #include <string.h>
 using namespace std;
 namespace coup{
-Captain::Captain(Game &game, string name) : Player(game, name){
+Captain::Captain(Game &game, string name) : Player(game, move(name)){
     this->roleName = "Captain";
 }
 void Captain::block(Player &p){
-     if(this->isPlaying == 0 || p.getIsPlaying()){
+     if(this->isPlaying == 0 || p.getIsPlaying() == 0){
           throw std::invalid_argument("Not playing"); 
     }
-    return;
+    // return;
 }
 
 void Captain::steal(Player &p){

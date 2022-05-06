@@ -7,8 +7,9 @@
 #include <string.h>
 using namespace std;
 using namespace coup;
+const int six = 6;
 
-Assassin::Assassin(Game &game, string name) : Player(game, name){
+Assassin::Assassin(Game &game, string name) : Player(game, move(name)){
     this->roleName = "Assassin";
 }
 
@@ -20,7 +21,7 @@ void Assassin::eliminate(Player &p){
     if(this->coin_amount < 3){
         throw std::invalid_argument("Needs at least 3 coins");
     }
-    if(this->coin_amount >= 3 && this->coin_amount <= 6){
+    if(this->coin_amount >= 3 && this->coin_amount <= six){
     this->setCurrentAction("eliminate");
     this->coin_amount -= 3;
     // int index = 0;

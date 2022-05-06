@@ -5,18 +5,15 @@
 #include <vector>
 using namespace std;
 using namespace coup;
-
-Player::Player(){
-    
-}
+const int seven = 7;
 
 Player::Player(Game &game, string name){
     this->game = &game;
-    this->name = name;
-    this->game->add(*this);
+    this->name = move(name);
+    this->game->add(this);
     this->coin_amount = 0;
     this->currentAction = "";
-    this->actionedPlayer = new Player();
+    this->actionedPlayer = NULL;
     this->isPlaying = 1;
 }
 
@@ -42,7 +39,7 @@ void Player::coup(Player &p){
      if(this->isPlaying == 0 || this->game->turn() != this->name){
         throw std::invalid_argument("Not playing");
     }
-    if(this->coin_amount < 7){
+    if(this->coin_amount < seven){
         throw std::invalid_argument("Needs at least 3 coins");
     }
     this->setCurrentAction("coup");
@@ -55,7 +52,7 @@ void Player::coup(Player &p){
     //     }
     // }
     // this->game->playersList.erase(this->game->playersList.begin() + index);
-    this->coin_amount -= 7;
+    this->coin_amount -= seven;
     p.setIsPlaying(0);
 }
 
@@ -64,6 +61,6 @@ string Player::role(){
 }
 
 
-int Player::coins(){
+int Player::coins() const{
     return this->coin_amount;
 }

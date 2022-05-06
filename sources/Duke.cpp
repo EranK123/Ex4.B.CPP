@@ -8,13 +8,13 @@
 using namespace std;
 using namespace coup;
 
-        Duke::Duke(Game &game, string name) : Player(game, name){
+        Duke::Duke(Game &game, string name) : Player(game, move(name)){
              this->roleName = "Duke";
         }
         
         void Duke::tax(){
         if(this->isPlaying == 0 || this->game->turn() != this->name){
-          throw std::invalid_argument("Not playing"); 
+          throw std::invalid_argument("Not playing or not your turn"); 
         }   
                 this->setCurrentAction("tax");
                 this->game->turnNum++;

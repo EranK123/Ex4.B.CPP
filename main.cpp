@@ -1,10 +1,10 @@
-#include "Ambassador.cpp"
-#include "Player.cpp"
-#include "Duke.cpp"
-#include "Assassin.cpp"
-#include "Captain.cpp"
-#include "Contessa.cpp"
-#include "Game.cpp"
+#include "sources/Ambassador.cpp"
+#include "sources/Player.cpp"
+#include "sources/Duke.cpp"
+#include "sources/Assassin.cpp"
+#include "sources/Captain.cpp"
+#include "sources/Contessa.cpp"
+#include "sources/Game.cpp"
 using namespace coup;
 #include <iostream>
 #include <string.h>
@@ -13,15 +13,24 @@ using namespace coup;
 using namespace std;
 
 int main(){
-    Game g;
-    Duke duke(g, "duke");    
-    Assassin assassin(g, "assassin");
-    Ambassador ambassador(g, "amb");
-    Captain captain(g, "cap");
-    Contessa contessa(g, "con");
-    // vector<string> s = g.players();
-//     for(int i=0; i < s.size(); i++){
-//     std::cout << s.at(i) << ' ' << endl;
-// }
+     Game scenario1{};
+
+    Duke PlayerONE{scenario1, "Player ONE"};
+	Assassin PlayerTWO{scenario1, "Player TWO"};
+
+
+    cout << scenario1.players().size();
+    PlayerONE.foreign_aid();
+     PlayerTWO.foreign_aid();
+      PlayerONE.foreign_aid();
+       PlayerTWO.foreign_aid();
+        PlayerONE.foreign_aid();
+         PlayerTWO.eliminate(PlayerONE);
+        cout << PlayerTWO.actionedPlayer->getName();
+//     cout << PlayerONE.coins();
+//     // vector<string> s = g.players();
+// //     for(int i=0; i < s.size(); i++){
+// //     std::cout << s.at(i) << ' ' << endl;
+// // }
 
 }

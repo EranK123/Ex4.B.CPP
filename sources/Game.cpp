@@ -14,23 +14,23 @@ using namespace coup;
         }
         vector<string> Game::players(){
             vector<string> s;
-            for (size_t i = 0; i < this->playersList.size(); i++){
-                // if(this->playersList.at(i)->getIsPlaying() > 0){
-                    cout << this->playersList.at(i)->coin_amount << endl;
+            for (unsigned long i = 0; i < this->playersList.size(); i++){
+                if(this->playersList.at(i)->getIsPlaying() == 1){
+                    cout << this->playersList.at(i)->getIsPlaying();
                 s.push_back(this->playersList.at(i)->getName());
-                // }
+                }
             }
             return s;
         }
         string Game::winner(){
             int count = 0;
-            for(int i = 0; i < this->playersList.size(); i++){
+            for(unsigned long i = 0; i < this->playersList.size(); i++){
                 if(this->playersList.at(i)->getIsPlaying() == 1){
                     count++;
                 }
             }
             if (count == 1){
-            for(int i = 0; i < this->playersList.size(); i++){
+            for(unsigned long i = 0; i < this->playersList.size(); i++){
                 if(this->playersList.at(i)->getIsPlaying() != 0){
                     return this->playersList.at(i)->getName();
                 }
@@ -39,8 +39,8 @@ using namespace coup;
         return "No Winner Yet";
         }
 
-        void Game::add(Player &p){
-            this->playersList.push_back(new Player(p));
+        void Game::add(Player *p){
+            this->playersList.push_back(p);
         }
 
      

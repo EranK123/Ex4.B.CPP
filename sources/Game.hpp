@@ -9,12 +9,12 @@ class Player;
 class Game{
         public:
         vector<Player*> playersList;
-        int turnNum;
+        unsigned long turnNum;
          Game();
          string turn();
          vector<string > players();
          string winner();
-         void add(Player &p);
+         void add(Player *p);
          void removeAtStart();
 };
 }

@@ -7,7 +7,7 @@
 using namespace std;
 using namespace coup;
 
-Ambassador::Ambassador(Game &game, string name) : Player(game, name){
+Ambassador::Ambassador(Game &game, string name) : Player(game, move(name)){
     this->roleName = "Ambassador";
 }
 

@@ -13,18 +13,17 @@ namespace coup{
         string name;
         Game *game;
         string currentAction;
-        unsigned long isPlaying;
+        int isPlaying;
         public:
         int coin_amount;
         Player *actionedPlayer;
-        Player();
         Player(Game &game, string name);
         // ~Player();
         void income();
         void foreign_aid();
         void coup(Player &p);
         string role();
-        int coins();
+        int coins() const;
         void removeAtStart();
         string role(string name);
         
@@ -52,7 +51,7 @@ namespace coup{
              this->currentAction = action;
         }
 
-        unsigned long getIsPlaying() const {
+        int getIsPlaying() const {
             return this->isPlaying;
         }
 
