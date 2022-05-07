@@ -5,6 +5,6 @@ namespace coup{
 
         public:
         Assassin(Game &game, string name);
-        void eliminate(Player &p);
+        void coup(Player &p);
     };
 }

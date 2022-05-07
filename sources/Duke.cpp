@@ -18,6 +18,9 @@ using namespace coup;
         }   
                 this->setCurrentAction("tax");
                 this->game->turnNum++;
+        while(this->game->playersList.at(this->game->turnNum % this->game->playersList.size())->getIsPlaying() == 0){
+        this->game->turnNum++;
+    }
                 this->coin_amount += 3;
                 
         }

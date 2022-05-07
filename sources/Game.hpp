@@ -10,6 +10,8 @@ class Game{
         public:
         vector<Player*> playersList;
         unsigned long turnNum;
+        int gameStarted;
+        int gameEnded;
          Game();
          string turn();
          vector<string > players();

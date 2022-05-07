@@ -18,10 +18,9 @@ namespace coup{
         int coin_amount;
         Player *actionedPlayer;
         Player(Game &game, string name);
-        // ~Player();
         void income();
         void foreign_aid();
-        void coup(Player &p);
+        virtual void coup(Player &p);
         string role();
         int coins() const;
         void removeAtStart();

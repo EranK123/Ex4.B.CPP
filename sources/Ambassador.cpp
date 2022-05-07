@@ -13,7 +13,7 @@ Ambassador::Ambassador(Game &game, string name) : Player(game, move(name)){
 
 
 void Ambassador::transfer(Player &p1, Player &p2){
-    if(this->isPlaying == 0 || p1.getIsPlaying() == 0 || p2.getIsPlaying() == 0){
+    if(this->isPlaying == 0 || p1.getIsPlaying() == 0 || p2.getIsPlaying() == 0 || p1.getCoinAmount() == 0){
           throw std::invalid_argument("Not playing"); 
     }
     this->setCurrentAction("transfer");
